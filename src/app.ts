@@ -9,9 +9,20 @@ import routes from './app/routes/index'
 
 const app: Application = express()
 
-app.use(cors())
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:3000', 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Handle CORS preflight requests
+app.options('*', cors(corsOptions))
 
 // Testing route
 app.get('/', async (req, res, next) => {
