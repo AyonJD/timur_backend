@@ -1,0 +1,1 @@
+export const NFT_SEARCH_FIELDS = ['nftName']
