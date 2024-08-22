@@ -12,6 +12,16 @@ const createOffer = async (offerData: IOffer): Promise<IOffer> => {
   return offer
 }
 
+const getAllOffers = async (): Promise<IOffer[]> => {
+  const offers = await offerModel.find()
+
+  if (!offers || offers.length === 0)
+    throw new ApiError(httpStatus.NOT_FOUND, 'No offers found')
+
+  return offers
+}
+
 export const OfferService = {
   createOffer,
+  getAllOffers,
 }

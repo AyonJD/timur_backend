@@ -15,6 +15,18 @@ const createBid = catchAsync(async (req: Request, res: Response) => {
   sendSuccessResponse(res, responseData)
 })
 
+const getAllBids = catchAsync(async (req: Request, res: Response) => {
+  const bids = await BidSearvice.getAllBids()
+
+  const responseData = {
+    message: 'Bids retrieved successfully',
+    data: bids,
+  }
+
+  sendSuccessResponse(res, responseData)
+})
+
 export const BidController = {
   createBid,
+  getAllBids,
 }

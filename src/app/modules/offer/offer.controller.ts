@@ -15,6 +15,18 @@ const createOffer = catchAsync(async (req: Request, res: Response) => {
   sendSuccessResponse(res, responseData)
 })
 
+const getAllOffers = catchAsync(async (req: Request, res: Response) => {
+  const offers = await OfferService.getAllOffers()
+
+  const responseData = {
+    message: 'Offers retrieved successfully',
+    data: offers,
+  }
+
+  sendSuccessResponse(res, responseData)
+})
+
 export const OfferController = {
   createOffer,
+  getAllOffers,
 }

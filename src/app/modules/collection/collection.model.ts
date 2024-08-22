@@ -8,6 +8,7 @@ const collectionSchema = new Schema(
     collectionName: { type: String, required: true },
     collectionSymbol: { type: String, required: true },
     collectionDescription: { type: String, required: true },
+    category: { type: String, required: true },
     supply: { type: Number, required: true },
     nfts: [{ type: Schema.Types.ObjectId, ref: 'Nft' }],
   },

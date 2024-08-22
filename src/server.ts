@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config'
-import { errorLogger, successLogger } from './shared/logger'
 import { Server } from 'http'
 
 let server: Server

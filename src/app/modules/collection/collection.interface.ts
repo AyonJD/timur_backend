@@ -4,6 +4,7 @@ export interface ICollection {
   collectionName: string
   collectionSymbol: string
   collectionDescription: string
+  category: string
   supply: number
   nfts: Types.ObjectId[]
 }
