@@ -8,4 +8,5 @@ const express_1 = __importDefault(require("express"));
 const bid_controller_1 = require("./bid.controller");
 const router = express_1.default.Router();
 router.post('/', bid_controller_1.BidController.createBid);
+router.get('/', bid_controller_1.BidController.getAllBids);
 exports.BidRoute = router;

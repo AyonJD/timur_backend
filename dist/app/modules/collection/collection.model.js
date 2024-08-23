@@ -19,6 +19,7 @@ const collectionSchema = new mongoose_1.Schema({
     collectionName: { type: String, required: true },
     collectionSymbol: { type: String, required: true },
     collectionDescription: { type: String, required: true },
+    category: { type: String, required: true },
     supply: { type: Number, required: true },
     nfts: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'Nft' }],
 }, {

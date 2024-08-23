@@ -20,9 +20,18 @@ const customResponse_1 = require("./shared/customResponse");
 // Import routes
 const index_1 = __importDefault(require("./app/routes/index"));
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true,
+};
+app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+// Handle CORS preflight requests
+app.options('*', (0, cors_1.default)(corsOptions));
 // Testing route
 app.get('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const responseData = {

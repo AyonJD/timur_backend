@@ -25,6 +25,15 @@ const createOffer = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     };
     (0, customResponse_1.sendSuccessResponse)(res, responseData);
 }));
+const getAllOffers = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const offers = yield offer_service_1.OfferService.getAllOffers();
+    const responseData = {
+        message: 'Offers retrieved successfully',
+        data: offers,
+    };
+    (0, customResponse_1.sendSuccessResponse)(res, responseData);
+}));
 exports.OfferController = {
     createOffer,
+    getAllOffers,
 };

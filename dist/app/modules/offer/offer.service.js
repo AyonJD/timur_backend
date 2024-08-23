@@ -22,6 +22,13 @@ const createOffer = (offerData) => __awaiter(void 0, void 0, void 0, function* (
         throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'Offer creation failed');
     return offer;
 });
+const getAllOffers = () => __awaiter(void 0, void 0, void 0, function* () {
+    const offers = yield offer_model_1.default.find();
+    if (!offers || offers.length === 0)
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'No offers found');
+    return offers;
+});
 exports.OfferService = {
     createOffer,
+    getAllOffers,
 };

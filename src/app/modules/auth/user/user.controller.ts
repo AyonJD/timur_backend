@@ -17,7 +17,9 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
 })
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
-  const walletAddress = req.body
+  const { walletAddress } = req.body
+
+  console.log(walletAddress)
 
   const user = await UserService.loginUser(walletAddress)
 

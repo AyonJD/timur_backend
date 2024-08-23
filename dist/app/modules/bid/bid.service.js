@@ -22,6 +22,13 @@ const createBid = (bidData) => __awaiter(void 0, void 0, void 0, function* () {
         throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'Bid creation failed');
     return bid;
 });
+const getAllBids = () => __awaiter(void 0, void 0, void 0, function* () {
+    const bids = yield bid_model_1.default.find();
+    if (!bids || bids.length === 0)
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'No bids found');
+    return bids;
+});
 exports.BidSearvice = {
     createBid,
+    getAllBids,
 };

@@ -30,7 +30,8 @@ const loginUser = async (walletAddress: string): Promise<IUserResponse> => {
   if (!walletAddress)
     throw new ApiError(httpStatus.BAD_REQUEST, 'Wallet Address is missing')
 
-  const user = await userModel.isUserExist(walletAddress)
+  const user = await userModel.findOne({ walletAddress })
+
   if (!user)
     throw new ApiError(
       httpStatus.NOT_FOUND,

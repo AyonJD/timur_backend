@@ -43,7 +43,7 @@ const loginAdmin = async (adminData: {
   const { email, password } = adminData
   if (!email) throw new ApiError(httpStatus.BAD_REQUEST, 'Email is missing')
 
-  const isUserExist = await adminModel.isUserExist(email)
+  const isUserExist = await adminModel.findOne({ email })
   if (!isUserExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Admin with this email not found')
   }

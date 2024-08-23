@@ -8,4 +8,5 @@ const express_1 = __importDefault(require("express"));
 const offer_controller_1 = require("./offer.controller");
 const router = express_1.default.Router();
 router.post('/', offer_controller_1.OfferController.createOffer);
+router.get('/', offer_controller_1.OfferController.getAllOffers);
 exports.OfferRoute = router;

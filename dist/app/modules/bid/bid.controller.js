@@ -25,6 +25,15 @@ const createBid = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
     };
     (0, customResponse_1.sendSuccessResponse)(res, responseData);
 }));
+const getAllBids = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const bids = yield bid_service_1.BidSearvice.getAllBids();
+    const responseData = {
+        message: 'Bids retrieved successfully',
+        data: bids,
+    };
+    (0, customResponse_1.sendSuccessResponse)(res, responseData);
+}));
 exports.BidController = {
     createBid,
+    getAllBids,
 };
