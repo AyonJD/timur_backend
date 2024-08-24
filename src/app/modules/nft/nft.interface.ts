@@ -7,6 +7,7 @@ export interface INft {
   owner: string
   creator: Types.ObjectId
   chainId: string
+  collectionId?: string
 }
 
 export interface INftModel extends Model<INft> {

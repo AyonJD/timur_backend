@@ -6,11 +6,12 @@ export interface ICollection {
   collectionDescription: string
   category: string
   supply: number
-  nfts: Types.ObjectId[]
+  nfts?: Types.ObjectId[]
   floorPrice: number
   totalVolume: number
   chainId: string
   image: string
+  nftType: number
 }
 
 export interface ICollectionModel extends Model<ICollection> {

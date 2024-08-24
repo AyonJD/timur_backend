@@ -10,11 +10,12 @@ const collectionSchema = new Schema(
     collectionDescription: { type: String, required: true },
     category: { type: String, required: true },
     supply: { type: Number, required: true },
-    nfts: [{ type: Schema.Types.ObjectId, ref: 'Nft' }],
+    nfts: [{ type: Schema.Types.ObjectId, ref: 'Nft', required: false }],
     floorPrice: { type: Number, required: true },
     totalVolume: { type: Number, required: true },
     chainId: { type: String, required: true },
     image: { type: String, required: true },
+    nftType: { type: Number, required: true },
   },
   {
     timestamps: true,
