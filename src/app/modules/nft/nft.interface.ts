@@ -6,6 +6,7 @@ export interface INft {
   image: string
   owner: string
   creator: Types.ObjectId
+  chainId: string
 }
 
 export interface INftModel extends Model<INft> {

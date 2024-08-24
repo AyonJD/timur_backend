@@ -13,6 +13,7 @@ const collectionSchema = new Schema(
     nfts: [{ type: Schema.Types.ObjectId, ref: 'Nft' }],
     floorPrice: { type: Number, required: true },
     totalVolume: { type: Number, required: true },
+    chainId: { type: String, required: true },
   },
   {
     timestamps: true,

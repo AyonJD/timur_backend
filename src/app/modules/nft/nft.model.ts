@@ -10,6 +10,7 @@ const nftSchema = new Schema(
     image: { type: String, required: true },
     owner: { type: String, required: true },
     creator: { type: Schema.Types.ObjectId, ref: 'User' },
+    chainId: { type: String, required: true },
   },
   {
     timestamps: true,
