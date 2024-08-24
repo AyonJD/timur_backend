@@ -59,9 +59,40 @@ const getCollectionByNftId = catchAsync(async (req: Request, res: Response) => {
   sendSuccessResponse(res, responseData)
 })
 
+const getCollectionsBySpecialCollection = catchAsync(
+  async (req: Request, res: Response) => {
+    const { specialCollection } = req.params
+    const collection =
+      await CollectionService.getCollectionsBySpecialCollection(
+        specialCollection,
+      )
+
+    const responseData = {
+      message: 'Collection fetched successfully',
+      data: collection,
+    }
+    sendSuccessResponse(res, responseData)
+  },
+)
+
+const getCollectionsByChainId = catchAsync(
+  async (req: Request, res: Response) => {
+    const { chainId } = req.params
+    const collection = await CollectionService.getCollectionsByChainId(chainId)
+
+    const responseData = {
+      message: 'Collection fetched successfully',
+      data: collection,
+    }
+    sendSuccessResponse(res, responseData)
+  },
+)
+
 export const CollectionController = {
   createCollection,
   getAllCollections,
   getCollectionById,
   getCollectionByNftId,
+  getCollectionsBySpecialCollection,
+  getCollectionsByChainId,
 }

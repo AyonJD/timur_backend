@@ -12,6 +12,7 @@ export interface ICollection {
   chainId: string
   image: string
   nftType: number
+  specialCollection?: string
 }
 
 export interface ICollectionModel extends Model<ICollection> {

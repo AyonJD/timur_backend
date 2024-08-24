@@ -90,9 +90,38 @@ const getCollectionByNftId = async (nftId: string): Promise<ICollection> => {
   return collection
 }
 
+const getCollectionsBySpecialCollection = async (
+  specialCollection: string,
+): Promise<ICollection[]> => {
+  // Query the database to find collections matching the specialCollection criteria
+  const collections = await collectionModel.find({ specialCollection }).exec()
+  if (!collections || collections.length === 0)
+    throw new ApiError(
+      httpStatus.NOT_FOUND,
+      'Collection not found with this Special collection',
+    )
+
+  return collections
+}
+
+const getCollectionsByChainId = async (
+  chainId: string,
+): Promise<ICollection[]> => {
+  const collections = await collectionModel.find({ chainId }).exec()
+  if (!collections || collections.length === 0)
+    throw new ApiError(
+      httpStatus.NOT_FOUND,
+      'Collection not found with this chain id',
+    )
+
+  return collections
+}
+
 export const CollectionService = {
   createCollection,
   getAllCollections,
   getCollectionById,
   getCollectionByNftId,
+  getCollectionsBySpecialCollection,
+  getCollectionsByChainId,
 }

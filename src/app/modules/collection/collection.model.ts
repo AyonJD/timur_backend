@@ -16,6 +16,7 @@ const collectionSchema = new Schema(
     chainId: { type: String, required: true },
     image: { type: String, required: true },
     nftType: { type: Number, required: true },
+    specialCollection: { type: String, required: false },
   },
   {
     timestamps: true,
