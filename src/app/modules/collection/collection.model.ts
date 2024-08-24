@@ -20,6 +20,8 @@ const collectionSchema = new Schema(
   },
 )
 
+// sssssssssssssssssssss======>
+
 collectionSchema.pre('save', async function (next) {
   const collection = this as ICollection
   const isExist = await collectionModel
