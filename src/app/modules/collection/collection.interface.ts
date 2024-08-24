@@ -10,6 +10,7 @@ export interface ICollection {
   floorPrice: number
   totalVolume: number
   chainId: string
+  image: string
 }
 
 export interface ICollectionModel extends Model<ICollection> {

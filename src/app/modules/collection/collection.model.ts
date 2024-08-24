@@ -14,6 +14,7 @@ const collectionSchema = new Schema(
     floorPrice: { type: Number, required: true },
     totalVolume: { type: Number, required: true },
     chainId: { type: String, required: true },
+    image: { type: String, required: true },
   },
   {
     timestamps: true,
