@@ -7,6 +7,8 @@ export interface ICollection {
   category: string
   supply: number
   nfts: Types.ObjectId[]
+  floorPrice: number
+  totalVolume: number
 }
 
 export interface ICollectionModel extends Model<ICollection> {
