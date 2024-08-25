@@ -10,8 +10,19 @@ import routes from './app/routes/index'
 const app: Application = express()
 
 // CORS configuration
+const allowedOrigins = [
+  'https://blockwinchain.netlify.app',
+  'https://blockwinchain-admin.netlify.app',
+]
+
 const corsOptions = {
-  origin: 'https://blockwinchain.netlify.app',
+  origin: (origin: any, callback: any) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   allowedHeaders: 'Content-Type,Authorization',
   credentials: true,
