@@ -21,10 +21,17 @@ const collectionSchema = new mongoose_1.Schema({
     collectionDescription: { type: String, required: true },
     category: { type: String, required: true },
     supply: { type: Number, required: true },
-    nfts: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'Nft' }],
+    nfts: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'Nft', required: false }],
+    floorPrice: { type: Number, required: true },
+    totalVolume: { type: Number, required: true },
+    chainId: { type: String, required: true },
+    image: { type: String, required: true },
+    nftType: { type: Number, required: true },
+    specialCollection: { type: String, required: false },
 }, {
     timestamps: true,
 });
+// sssssssssssssssssssss======>
 collectionSchema.pre('save', function (next) {
     return __awaiter(this, void 0, void 0, function* () {
         const collection = this;

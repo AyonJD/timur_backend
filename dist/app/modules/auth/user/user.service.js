@@ -34,7 +34,7 @@ const createUser = (userData) => __awaiter(void 0, void 0, void 0, function* () 
 const loginUser = (walletAddress) => __awaiter(void 0, void 0, void 0, function* () {
     if (!walletAddress)
         throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'Wallet Address is missing');
-    const user = yield user_model_1.default.isUserExist(walletAddress);
+    const user = yield user_model_1.default.findOne({ walletAddress });
     if (!user)
         throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'User with this wallet address not found');
     const accessToken = jsonwebtoken_1.default.sign({ walletAddress, role: 'user' }, config_1.default.access_token, {

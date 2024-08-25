@@ -27,7 +27,8 @@ const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, customResponse_1.sendSuccessResponse)(res, responseData);
 }));
 const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const walletAddress = req.body;
+    const { walletAddress } = req.body;
+    console.log(walletAddress);
     const user = yield user_service_1.UserService.loginUser(walletAddress);
     const responseData = {
         message: 'Successfully logged in',

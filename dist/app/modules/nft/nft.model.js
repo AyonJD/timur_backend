@@ -21,6 +21,7 @@ const nftSchema = new mongoose_1.Schema({
     image: { type: String, required: true },
     owner: { type: String, required: true },
     creator: { type: mongoose_1.Schema.Types.ObjectId, ref: 'User' },
+    chainId: { type: String, required: true },
 }, {
     timestamps: true,
 });

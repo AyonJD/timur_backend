@@ -73,9 +73,24 @@ const getCollectionByNftId = (nftId) => __awaiter(void 0, void 0, void 0, functi
     }
     return collection;
 });
+const getCollectionsBySpecialCollection = (specialCollection) => __awaiter(void 0, void 0, void 0, function* () {
+    // Query the database to find collections matching the specialCollection criteria
+    const collections = yield collection_model_1.default.find({ specialCollection }).exec();
+    if (!collections || collections.length === 0)
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'Collection not found with this Special collection');
+    return collections;
+});
+const getCollectionsByChainId = (chainId) => __awaiter(void 0, void 0, void 0, function* () {
+    const collections = yield collection_model_1.default.find({ chainId }).exec();
+    if (!collections || collections.length === 0)
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'Collection not found with this chain id');
+    return collections;
+});
 exports.CollectionService = {
     createCollection,
     getAllCollections,
     getCollectionById,
     getCollectionByNftId,
+    getCollectionsBySpecialCollection,
+    getCollectionsByChainId,
 };

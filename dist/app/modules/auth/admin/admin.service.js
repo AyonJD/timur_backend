@@ -49,7 +49,7 @@ const loginAdmin = (adminData) => __awaiter(void 0, void 0, void 0, function* ()
     const { email, password } = adminData;
     if (!email)
         throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'Email is missing');
-    const isUserExist = yield admin_model_1.default.isUserExist(email);
+    const isUserExist = yield admin_model_1.default.findOne({ email });
     if (!isUserExist) {
         throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'Admin with this email not found');
     }
